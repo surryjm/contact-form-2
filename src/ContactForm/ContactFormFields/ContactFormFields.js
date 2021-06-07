@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { withRouter } from 'react-router-dom';
 import db from '../../firebase/db';
-import ReCAPTCHA from 'react-google-recaptcha';
+//import ReCAPTCHA from 'react-google-recaptcha';
 import './ContactFormFields.css';
 
 export default class ContactFormFields extends Component {
@@ -70,7 +70,7 @@ export default class ContactFormFields extends Component {
   }
 
   render() {
-    const RECAPTCHA_KEY = '6Ld1LRgbAAAAAF7NfxP-FrnTmRQANyUl1tFxkDdc';
+    //const RECAPTCHA_KEY = '6Ld1LRgbAAAAAF7NfxP-FrnTmRQANyUl1tFxkDdc';
 
     return (
       <div className="contact-form-container">
