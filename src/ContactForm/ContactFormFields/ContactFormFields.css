@@ -1,0 +1,62 @@
+/* Background image by Stephanie Bergeron on Unsplash, https://unsplash.com/@deliberately_creative */
+
+.contact-form-container {
+  margin-top: 10vh;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem 3rem 3rem 3rem;
+  color: white;
+}
+
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0 1rem 0
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: .5rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 5px;
+  border: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  padding: .75rem 3rem .75rem 3rem;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 15rem;
+}
+
+input {
+  height: 3rem;
+}
+
+.btn-grad {
+  background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border: none;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+}

@@ -1,0 +1,12 @@
+.nav {
+  color: white;
+}
+
+.nav:hover {
+  text-decoration: none;
+}
+
+.nav-container {
+  text-align: center;
+  margin-top: 1rem;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 //import { withRouter } from 'react-router-dom';
 import db from '../../firebase/db';
+import ReCAPTCHA from 'react-google-recaptcha';
+import './ContactFormFields.css';
 
 export default class ContactFormFields extends Component {
   state = {
@@ -63,11 +65,17 @@ export default class ContactFormFields extends Component {
     });
   }
 
+  onChange = (value) => {
+    console.log("Captcha value: ", value);
+  }
+
   render() {
+    const RECAPTCHA_KEY = '6Ld1LRgbAAAAAF7NfxP-FrnTmRQANyUl1tFxkDdc';
+
     return (
-      <div>
-        <h1>Contact Form</h1>
-        <form onSubmit={this.onFormSubmit}>
+      <div className="contact-form-container">
+        <h1>Contact</h1>
+        <form onSubmit={this.onFormSubmit} method="POST">
           <ul>
             <li>
               <label htmlFor="name">Name:</label>
@@ -102,9 +110,11 @@ export default class ContactFormFields extends Component {
               />
             </li>
           </ul>
-          <li>
-            <button type="submit">Submit</button>
-          </li>
+          {/*<ReCAPTCHA
+            sitekey={RECAPTCHA_KEY}
+            onChange={this.onChange}
+          />*/}
+          <button className="btn-grad" type="submit">Submit</button>
         </form>
       </div>
     )

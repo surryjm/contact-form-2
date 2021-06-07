@@ -5,7 +5,10 @@ export default class ContactFormSuccessMsg extends React.Component {
 
   render() {
     return (
-      <h2>Success!</h2>
+      <div className="contact-form-container">
+        <h2>Thank you!</h2>
+        <p>We'll be in touch with you shortly.</p>
+      </div>
     )
   }
 }
