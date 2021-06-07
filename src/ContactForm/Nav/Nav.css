@@ -1,9 +1,10 @@
 .nav {
   color: white;
+  text-decoration: none;
 }
 
 .nav:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .nav-container {

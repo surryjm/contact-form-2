@@ -43,6 +43,7 @@ button {
 
 textarea {
   height: 15rem;
+  line-height: 1.5;
 }
 
 input {
