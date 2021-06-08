@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-//import { withRouter } from 'react-router-dom';
 import db from '../../firebase/db';
-//import ReCAPTCHA from 'react-google-recaptcha';
 import './ContactFormFields.css';
 
 export default class ContactFormFields extends Component {
@@ -10,30 +8,6 @@ export default class ContactFormFields extends Component {
     email: '',
     message: ''
   }
-
-  // componentDidMount() {
-  //   // GET REALTIME UPDATES FOR COLLECTION
-  //   this.unsubscribe = db.collection('contactForms')
-  //     .orderBy('createdAt', 'desc')
-  //     .onSnapshot((data) => {
-  //       const contactForms = data.docs.map(doc => {
-  //         return {
-  //           id: doc.id,
-  //           ...doc.data()
-  //         };
-  //       });
-
-  //       // this.setState({
-  //       //   contactForms
-  //       // })
-  //     });
-  // };
-
-  // componentWillUnmount() {
-  //   if (this.unsubscribe) {
-  //     this.unsubscribe();
-  //   };
-  // };
 
   handleInputChange = (event) => {
     const target = event.target;
@@ -61,16 +35,11 @@ export default class ContactFormFields extends Component {
         email: '',
         message: ''
       });
-      this.props.history.push('/contact-form-success');
+    this.props.history.push('/contact-form-success');
     });
   }
 
-  onChange = (value) => {
-    console.log("Captcha value: ", value);
-  }
-
   render() {
-    //const RECAPTCHA_KEY = '6Ld1LRgbAAAAAF7NfxP-FrnTmRQANyUl1tFxkDdc';
 
     return (
       <div className="contact-form-container">
@@ -110,15 +79,9 @@ export default class ContactFormFields extends Component {
               />
             </li>
           </ul>
-          {/*<ReCAPTCHA
-            sitekey={RECAPTCHA_KEY}
-            onChange={this.onChange}
-          />*/}
           <button className="btn-grad" type="submit">Submit</button>
         </form>
       </div>
     )
   }
 }
-
-//export default withRouter(ContactFormFields);

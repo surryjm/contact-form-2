@@ -4,7 +4,6 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-//import ContactForm from '../ContactForm';
 import ContactFormFields from '../ContactFormFields/ContactFormFields';
 import ContactFormSuccessMsg from '../ContactFormSuccessMsg/ContactFormSuccessMsg';
 import Nav from '../Nav/Nav';
