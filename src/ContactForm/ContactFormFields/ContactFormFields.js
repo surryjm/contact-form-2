@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import db from '../../firebase/db';
 import './ContactFormFields.css';
@@ -37,6 +38,24 @@ export default class ContactFormFields extends Component {
       });
     this.props.history.push('/contact-form-success');
     });
+
+    axios({
+      method: 'post',
+      url: '/send',
+      data: {
+        name: this.state.name,
+        email: this.state.email,
+        message: this.state.message
+      }
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+
   }
 
   render() {
