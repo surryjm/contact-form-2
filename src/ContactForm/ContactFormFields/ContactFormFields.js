@@ -41,7 +41,7 @@ export default class ContactFormFields extends Component {
 
     axios({
       method: 'post',
-      url: '/send',
+      url: '/.netlify/functions/send',
       data: {
         name: this.state.name,
         email: this.state.email,
