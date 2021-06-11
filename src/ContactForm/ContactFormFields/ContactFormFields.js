@@ -18,7 +18,7 @@ export default class ContactFormFields extends Component {
     this.setState({
       [name]: value
     });
-  }
+  };
 
   onFormSubmit = (event) => {
     event.preventDefault();
@@ -52,18 +52,13 @@ export default class ContactFormFields extends Component {
       console.log(response);
     })
     .catch((error) => {
-      console.log(error);
       console.log(error.response.data);
       console.log(error.response.status);
       console.log(error.response.headers);
-      console.log(error.toJSON());
     })
-
-
-  }
+  };
 
   render() {
-
     return (
       <div className="contact-form-container">
         <h1>Contact</h1>
