@@ -49,7 +49,7 @@ export default class ContactFormFields extends Component {
       }
     })
     .then((response) => {
-      console.log(response.status, response.statusText);
+      console.log(response.status);
     })
     .catch((error) => {
       console.log(error.response.data);
