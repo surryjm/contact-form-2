@@ -1,6 +1,6 @@
 [build]
   functions = "functions"
-  command = "npm start"
+  command = "npm run build"
 [functions]
   directory = "functions"
 
