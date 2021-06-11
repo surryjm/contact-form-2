@@ -17,17 +17,17 @@ exports.handler = async function (event, context) {
 
   try {
     let info = await transporter.sendMail({
-      from: process.env.RECEIVING_EMAIL,
+      from: name,
       to: process.env.RECEIVING_EMAIL,
       subject: 'Contact form request',
-      html: `<h3>Email from ${name}, ${email}</h3><p>${message}</p>`
+      html: `<p>From: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`
     });
     console.log(info);
     callback(null, { statusCode: 200, body: JSON.stringify(info) });
   } catch (error) {
     callback(error);
   };
-  
+
 }
 
 
