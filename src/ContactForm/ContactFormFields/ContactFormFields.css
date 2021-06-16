@@ -1,7 +1,7 @@
 /* Background image by Stephanie Bergeron on Unsplash, https://unsplash.com/@deliberately_creative */
 
 .contact-form-container {
-  margin-top: 10vh;
+  margin-top: 5vh;
   background: rgba(0, 0, 0, 0.6);
   padding: 1rem 3rem 3rem 3rem;
   color: white;
@@ -39,10 +39,11 @@ button {
   font-size: inherit;
   font-weight: 600;
   border-radius: 5px;
+  margin-top: 1.1rem;
 }
 
 textarea {
-  height: 15rem;
+  height: 12rem;
   line-height: 1.5;
 }
 
