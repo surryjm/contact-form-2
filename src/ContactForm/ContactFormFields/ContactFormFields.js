@@ -33,6 +33,10 @@ export default class ContactFormFields extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
 
+    if (this.state.recaptchaValue === "") {
+      alert("Please verify you are not a robot before clicking submit.")
+    };
+
     // Verify reCaptcha
     axios({
       method: 'post',

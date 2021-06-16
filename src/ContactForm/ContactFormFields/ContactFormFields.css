@@ -62,3 +62,11 @@ input {
 .btn-grad:hover {
   background-position: right center;
 }
+
+
+@media (max-width: 500px) {
+  .contact-form-container {
+    margin-top: 0;
+    padding: 1rem .5rem 3rem .5rem;
+  }
+}
