@@ -2,12 +2,15 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import db from '../../firebase/db';
 import './ContactFormFields.css';
+import ReCAPTCHA from 'react-google-recaptcha';
+
 
 export default class ContactFormFields extends Component {
   state = {
     name: '',
     email: '',
-    message: ''
+    message: '',
+    recaptchaValue: ''
   }
 
   handleInputChange = (event) => {
@@ -20,9 +23,42 @@ export default class ContactFormFields extends Component {
     });
   };
 
+  onChange = (recaptchaValue) => {
+    console.log("Captcha value:", recaptchaValue);
+    this.setState({
+      recaptchaValue: recaptchaValue
+    });
+  };
+
   onFormSubmit = (event) => {
     event.preventDefault();
-    
+
+    // Verify reCaptcha
+    axios({
+      method: 'post',
+      url: '/.netlify/functions/verify-recaptcha',
+      data: {
+        recaptchaValue: this.state.recaptchaValue
+      }
+    })
+    .then((response) => {
+      console.log(response);
+      if (response.data.success === false) {
+        return;
+      } else {
+        this.addToDb();
+      }
+    })
+    .catch((error) => {
+      console.log('Captcha error: ' + error);
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    });
+  };
+
+  // Add to database
+  addToDb = () => {
     db.collection('contactForms')
     .add({
       name: this.state.name,
@@ -36,9 +72,13 @@ export default class ContactFormFields extends Component {
         email: '',
         message: ''
       });
-    this.props.history.push('/contact-form-success');
+      this.props.history.push('/contact-form-success');
     });
+    this.sendEmail();
+  };
 
+  // Send email notification
+  sendEmail = () => {
     axios({
       method: 'post',
       url: '/.netlify/functions/send',
@@ -55,10 +95,12 @@ export default class ContactFormFields extends Component {
       console.log(error.response.data);
       console.log(error.response.status);
       console.log(error.response.headers);
-    })
-  };
+    });
+  }
 
   render() {
+    const SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+
     return (
       <div className="contact-form-container">
         <h1>Contact</h1>
@@ -97,6 +139,10 @@ export default class ContactFormFields extends Component {
               />
             </li>
           </ul>
+          <ReCAPTCHA
+            sitekey={SITE_KEY}
+            onChange={this.onChange}
+          />
           <button className="btn-grad" type="submit">Submit</button>
         </form>
       </div>

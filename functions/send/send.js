@@ -27,7 +27,6 @@ exports.handler = async function (event, context, callback) {
   } catch (error) {
     callback(error);
   };
-
 };
 
 
